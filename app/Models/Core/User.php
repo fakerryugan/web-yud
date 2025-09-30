@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Modules\Auth\Entities\Document;
+
 
 use Auth;
 
@@ -29,6 +31,7 @@ class User extends Authenticatable
 		'unit',
 		'staff',
         'status',
+        'fcm_token'
     ];
 
     /**
@@ -98,4 +101,16 @@ class User extends Authenticatable
 		if($rol[$this->role_aktif]==$roleCheck)return true;
 		return false;
 	}
+    public function documents()
+    {
+    return $this->hasMany(Document::class, 'user_id');
+    }
+    public function signatures()
+    {
+    return $this->hasMany(\Modules\Auth\Entities\Signature::class, 'signer_id'); 
+    }
+    public function routeNotificationForFcm()
+{
+    return $this->fcm_token;
+}
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Auth\Entities; 
-
+use App\Models\Core\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Signature extends Model

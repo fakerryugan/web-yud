@@ -11,12 +11,9 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-public function run(): void
-{
-    $this->call([
-        \Modules\Auth\Database\Seeders\DocumentSeeder::class,
-        \Modules\Auth\Database\Seeders\SignatureSeeder::class,
-    ]);
-}
-
+    public function run()
+    {
+        $this->call(CreateAdminUserSeeder::class);
+        $this->call(MenusTableSeeder::class);
+    }
 }

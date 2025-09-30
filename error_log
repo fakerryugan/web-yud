@@ -1,0 +1,101 @@
+[08-Jun-2025 01:52:35 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:52:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:54:02 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:54:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:41 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:43 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:44 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:44 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:45 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:45 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:46 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:46 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:47 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:47 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:47 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:48 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:48 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:49 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:49 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:50 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:58:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:59:21 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:59:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:59:53 UTC] PHP Warning:  require(/home/fakerryu/public_html/../laraver/vendor/autoload.php): Failed to open stream: No such file or directory in /home/fakerryu/public_html/index.php on line 34
+[08-Jun-2025 01:59:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/fakerryu/public_html/../laraver/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/fakerryu/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/fakerryu/public_html/index.php on line 34
+[18-Sep-2025 09:28:18 Asia/Jakarta] PHP Fatal error:  Cannot use App\Services\FcmService as FcmService because the name is already in use in /home/fakerryu/laravel/Modules/Auth/Routes/api.php on line 9

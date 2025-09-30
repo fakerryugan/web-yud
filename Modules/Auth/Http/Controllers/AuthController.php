@@ -6,6 +6,7 @@ namespace Modules\Auth\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Google\Client as GoogleClient;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,8 @@ class AuthController extends Controller
     }
 
     $user = Auth::user();
+
+    // Hapus semua token lama sebelum buat token baru
     $user->tokens()->delete();
 
     $token = $user->createToken('api_token')->plainTextToken;
@@ -29,11 +32,30 @@ class AuthController extends Controller
         'user' => $user,
     ]);
 }
+public function updateFcmToken(Request $request)
+{
+    $request->validate([
+        'fcm_token' => 'required|string',
+    ]);
+
+    $user = $request->user();
+    $user->fcm_token = $request->fcm_token;
+    $user->save();
+
+    return response()->json(['message' => 'FCM token berhasil diperbarui']);
+}
+
 public function logout(Request $request)
 {
-    $request->user()->currentAccessToken()->delete();
+    $user = $request->user();
+
+    $user->fcm_token = null;
+    $user->save();
+
+    $user->currentAccessToken()->delete();
 
     return response()->json(['message' => 'Logout berhasil']);
 }
+
 
 }

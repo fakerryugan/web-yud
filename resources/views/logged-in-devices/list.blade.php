@@ -28,7 +28,7 @@
 				<tr>
 				  <td>{{ $device->user_agent }}</td>
 				  <td>{{ $device->ip_address }}</td>
-				  <td>{{ Carbon\Carbon::parse($device->last_activity)->diffForHumans() }}</td>
+				 <td>{{ Carbon\Carbon::createFromTimestamp($device->last_activity)->diffForHumans() }}</td>
 				  @if ($current_session_id == $device->id)
 				  <td><button type="button" :disabled="true" class="btn btn-primary">This Device</button></td>
 				  @else

@@ -7,11 +7,12 @@ use Illuminate\Support\Str;
 use Modules\Auth\Entities\Document;
 use Modules\Auth\Entities\Signature;
 use App\Models\Core\User;
+use Illuminate\Support\Facades\Crypt;
 
 class SignatureController extends Controller
 {
- public function addSigner($documentId, Request $request)
-{
+    public function addSigner($documentId, Request $request)
+    {
     $document = Document::findOrFail($documentId);
 
     if (empty($document->tujuan)) {
@@ -38,7 +39,7 @@ class SignatureController extends Controller
         return response()->json(['message' => 'Penandatangan sudah ditambahkan'], 409);
     }
 
-    $token = Str::uuid()->toString();
+    $signToken = Str::uuid()->toString();
 
     $signature = Signature::create([
         'document_id' => $documentId,
@@ -46,43 +47,155 @@ class SignatureController extends Controller
         'status' => 'pending',
         'sign_token' => $signToken,
     ]);
-   $encryptedLink = Crypt::encryptString(
-        $document->user->name . '::' . $document->encrypted_original_filename . '::' . $signToken
-    );
-
+ 
     return response()->json([
         'message' => 'Penandatangan berhasil ditambahkan',
         'sign_token' => $signToken,
         'signer_id' => $signerId,
-        'encrypted_link' => $encryptedLink,
     ]);
-}
-   public function viewFromPayload(Request $request)
-{
+    }
+    public function viewFromPayload($signToken)
+    {
     try {
-        $payload = Crypt::decryptString($request->payload);
-        [$creatorName, $encryptedFilename, $signToken] = explode('::', $payload);
+        $signature = Signature::where('sign_token', $signToken)->firstOrFail();
+        $document = $signature->document;
 
-        $document = Document::where('encrypted_original_filename', $encryptedFilename)->firstOrFail();
-
-        $signature = $document->signatures()
-            ->where('sign_token', $signToken)
-            ->first();
-
-        if (!$signature) {
-            return response()->json(['message' => 'Token tanda tangan tidak valid'], 403);
-        }
+        $allSignatures = $document->signatures->map(function ($sig) {
+            return [
+                'sign_token' => $sig->sign_token,
+                'signer_id' => $sig->signer_id,
+                'status' => $sig->status,
+                'name' => optional($sig->user)->name,
+            ];
+        });
 
         return response()->json([
-            'creator' => $creatorName,
-            'original_name' => Crypt::decryptString($document->encrypted_original_filename),
-            'sign_token' => $signToken,
-            'tujuan' => $document->tujuan,
-            'signer_id' => $signature->signer_id,
+            'document_id' => $document->id,
+            'original_name' => explode('|', Crypt::decryptString($document->encrypted_original_filename))[0],
             'access_token' => $document->access_token,
+            'tujuan' => $document->tujuan,
+            'current_sign_token' => $signToken,
+            'current_signer_id' => $signature->signer_id,
+            'current_status' => $signature->status,
+            'download_url' => url("/api/documents/download/{$document->access_token}/{$document->encrypted_original_filename}"),
+            'signers' => $allSignatures,
         ]);
 
     } catch (\Exception $e) {
-        return response()->json(['message' => 'Payload tidak valid'], 400);
+        return response()->json([
+            'message' => 'Payload tidak valid atau UUID tidak ditemukAn',
+            'error' => $e->getMessage(),
+        ], 400);
     }
-}}
+    }
+    public function listSign()
+    {
+    $user = auth()->user();
+
+    if (!$user) {
+        return response()->json(['message' => 'Unauthorized'], 401);
+    }
+    $signatures = $user->signatures()->get();
+    $result = $signatures->map(function ($signature) {
+        $document = $signature->document;
+        $decrypted = Crypt::decryptString($document->encrypted_original_filename);
+        [$originalName, $token] = explode('|', $decrypted);
+        return [
+            'document_id' => $document->id,
+            'sign_token' => $signature->sign_token,
+            'original_name' => $originalName,
+            'uploaded_at' => $document->created_at->toDateTimeString(),
+            'tujuan' => $document->tujuan,
+            'review_url' => url("/api/documents/review/{$document->access_token}"),
+            'access_token' => $document->access_token,
+        ];
+    });
+
+    return response()->json([
+        'status' => true,
+        'documents' => $result,
+    ]);
+    }
+
+    public function listSignRequests()
+    {
+    $user = auth()->user();
+
+    if (!$user) {
+        return response()->json(['message' => 'Unauthorized'], 401);
+    }
+
+    $signatures = $user->signatures()->where('status', 'pending')->with('document')->get();
+
+    $result = $signatures->map(function ($signature) {
+        $document = $signature->document;
+        try {
+            $decrypted = Crypt::decryptString($document->encrypted_original_filename);
+            [$originalName, $token] = explode('|', $decrypted);
+        } catch (\Exception $e) {
+            $originalName = 'Tidak bisa didekripsi';
+        }
+
+        return [
+            'document_id' => $document->id,
+            'sign_token' => $signature->sign_token,
+            'original_name' => $originalName,
+            'uploaded_at' => $document->created_at->toDateTimeString(),
+            'tujuan' => $document->tujuan,
+            'review_url' => url("/api/documents/review/{$document->access_token}"),
+            'access_token' => $document->access_token,
+        ];
+    });
+
+    return response()->json([
+        'status' => true,
+        'documents' => $result,
+    ]);
+    }
+
+    public function processSignature(Request $request, $signToken)
+    {
+    $request->validate([
+        'status' => 'required|in:approved,rejected',
+    ]);
+
+    try {
+        $signature = Signature::where('sign_token', $signToken)->firstOrFail();
+
+        if ($signature->status !== 'pending') {
+            return response()->json(['message' => 'Tanda tangan sudah diproses sebelumnya'], 409);
+        }
+
+        $signature->status = $request->status;
+        $signature->save();
+        $document = $signature->document;
+        if ($request->status === 'approved') {
+            $allApproved = $document->signatures()
+                ->where('status', '!=', 'approved')
+                ->count() === 0;
+
+            if ($allApproved) {
+                $document->verified_at = now();
+                $document->save();
+            }
+
+            return response()->json([
+                'message' => 'Tanda tangan berhasil disetujui',
+                'document_verified' => $allApproved,
+            ]);
+
+        } else if ($request->status === 'rejected') {
+            $document->verified_at = null; 
+            $document->save();
+
+            return response()->json([
+                'message' => 'Tanda tangan berhasil ditolak',
+                'document_verified' => false,
+            ]);
+        }
+
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'Token tidak valid atau tanda tangan tidak ditemukan'], 400);
+    }
+    }
+}

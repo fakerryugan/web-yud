@@ -36,6 +36,9 @@ return [
         'redirect' => env('OAUTH_SERVER_REDIRECT_URI'),
         'uri' => env('OAUTH_SERVER_URI'),
         'uriLogout' => env('OAUTH_SERVER_LOGOUT_URI'),
-    ]
-
+    ],
+    'firebase' => [
+    'credentials' => env('GOOGLE_APPLICATION_CREDENTIALS'),
+    'project_id' => env('FIREBASE_PROJECT_ID'),
+]
 ];

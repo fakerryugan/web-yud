@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -9,10 +8,10 @@ class CreateSignaturesTable extends Migration
     public function up()
     {
         Schema::create('signatures', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('document_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('document_id')->index();
             $table->unsignedBigInteger('signer_id');
-            $table->string('status', 255)->default('pending');
+            $table->string('status', 255)->default('pending'); // pending, signed, rejected
             $table->char('sign_token', 36)->nullable()->index();
             $table->timestamp('signed_at')->nullable();
             $table->timestamps();
