@@ -1,8 +1,8 @@
-@extends('adminlte::page')
 
-@section('title', 'Dasbor Persuratan Digital')
 
-@section('content_header')
+<?php $__env->startSection('title', 'Dasbor Persuratan Digital'); ?>
+
+<?php $__env->startSection('content_header'); ?>
     <div class="row align-item-center">
     <h1 class="m-1 text-dark">Dashboard</h1>
     <div class="col-md-10">
@@ -18,9 +18,9 @@
                     </form>
                     </div>
                     </div>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -29,13 +29,13 @@
             </div>
         </div>
     </div>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
 	 <!--some css
     <link rel="stylesheet" href="/assets/css/admin_custom.css">-->
-@stop
-@push('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('js'); ?>
 <script>
     $(document).ready(function() {
         $('#btnOpenSaltB').click(function() {
@@ -61,4 +61,5 @@
         });
     })
 </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\PBL\Web\web-yud\resources\views/dashboard/admin.blade.php ENDPATH**/ ?>

@@ -11,10 +11,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <p class="mb-0">You are logged in!
+                    <p class="mb-0">You are logged in! sebagai admin
+					</p>
                     <button type="button" class="btn btn-primary m-1" id="btnOpenSaltB">Open Sweetalert2 (Basic)</button>
                     <button type="button" class="btn btn-success m-1" id="btnOpenSaltC">Open Sweetalert2 (Custom)</button>
-					</p>
                 </div>
             </div>
         </div>
@@ -25,7 +25,6 @@
 	 <!--some css
     <link rel="stylesheet" href="/assets/css/admin_custom.css">-->
 @stop
-
 @push('js')
 <script>
     $(document).ready(function() {
