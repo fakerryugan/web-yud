@@ -1,0 +1,282 @@
+:root {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+/* page background */
+html,
+body {
+  height: 100%;
+  background-color: #eff7fc;
+  margin: 0;
+  padding: 0;
+  color: #0f172a;
+}
+
+/*Sidebar*/
+
+.sidebar {
+  width: 280px;
+  background-color: #ffffff;
+  border-right: 1px solid rgba(15, 23, 42, 0.04);
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 26px 18px;
+}
+
+/* brand */
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-logo img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.brand-text .brand-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.brand-text .brand-sub {
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+
+/* menu */
+.menu {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  text-decoration: none;
+  color: #111827;
+  border-radius: 10px;
+  transition: all 0.12s ease;
+  position: relative;
+}
+
+.menu-item .icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.menu-item .chev {
+  margin-left: auto;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.menu-item.active {
+  background-color: rgba(14, 165, 233, 0.06);
+  color: #0ea5e9;
+}
+
+/* collapsed*/
+.sidebar.collapsed {
+  transform: translateX(-100%);
+  transition: transform 0.2s ease;
+}
+
+/*============ KIRI ==============*/
+
+/*Main*/
+
+.main-content {
+  margin-left: 280px;
+  margin-top: -25px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*top hero*/
+.top-hero {
+  background-color: #b2ddf7;
+  height: 363px;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: none;
+}
+
+.burger-btn {
+  border: none;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+}
+
+.topbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/*kotak tampilan pdf*/
+.kotak-pdf {
+  background-color: #eff7fc;
+  height: 537px;
+  width: 100%;
+}
+
+.py-4 {
+  padding-top: 617px !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.header-view {
+  background-color: #172b4c;
+  position: absolute;
+  width: 1157px;
+  height: 70px;
+  margin-top: -642px;
+  margin-left: -12px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.kembali {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  margin-left: 956px;
+  margin-top: 15px;
+  width: 130px;
+  height: 45px;
+}
+
+.status-icon {
+  width: 70px;
+  height: 34px;
+  margin-left: 840px;
+  margin-top: -70px;
+  object-fit: contain;
+}
+
+.page-title {
+  font-size: 34px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  margin-top: 110px;
+  margin-left: 22px;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 25px;
+  margin-top: -185px;
+}
+
+.avatar-img {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(15, 23, 42, 0.06);
+}
+
+/*Content container*/
+.content-wrap {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  max-width: 1180px;
+}
+
+/*dashboard card*/
+.dash-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  padding: 24px;
+  position: relative;
+  margin-bottom: 26px;
+  margin-top: -720px;
+}
+
+.footer {
+  padding: 16px;
+  background: transparent;
+  color: #6b7280;
+}
+
+/*Responsive*/
+
+@media (max-width: 1200px) {
+  .search-box {
+    width: 260px;
+  }
+
+  .table-head,
+  .row-item {
+    grid-template-columns: 1fr 180px 130px 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1100;
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .content-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dash-card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-box {
+    width: 100%;
+  }
+
+  .table-head {
+    display: none;
+  }
+
+  .row-item {
+    grid-template-columns: 1fr 100px 64px;
+    gap: 6px;
+    align-items: start;
+  }
+
+  .row-item .more-col {
+    grid-column: 3 / 4;
+  }
+}

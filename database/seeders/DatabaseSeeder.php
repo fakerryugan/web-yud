@@ -15,6 +15,5 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CreateAdminUserSeeder::class);
         $this->call(MenusTableSeeder::class);
-        $this->call(DocumentSeeder::class);
     }
 }
