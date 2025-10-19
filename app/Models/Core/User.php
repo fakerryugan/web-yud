@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Auth\Entities\Document;
+use Database\Factories\UserFactory; // Pastikan ini ada
 
 
 use Auth;
@@ -17,7 +18,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
-	protected $connection = 'mysql';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,8 +29,8 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
-		'unit',
-		'staff',
+        'unit',
+        'staff',
         'status',
         'fcm_token'
     ];
@@ -52,65 +53,80 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-	
-	public function token()
+    
+    public function token()
     {
         return $this->hasOne(OauthToken::class);
     }
-	
-	public function adminlte_image()
-	{
-		if(!\Storage::exists('/path/to/your/directory')) {
-			return asset('/assets/img/avatar.png');
-		}else{
-			return asset('storage/assets/img/avatar/'.$this->avatar);
-		}
-		
-	}
+    
+    public function adminlte_image()
+    {
+        if(!\Storage::exists('/path/to/your/directory')) {
+            return asset('/assets/img/avatar.png');
+        }else{
+            return asset('storage/assets/img/avatar/'.$this->avatar);
+        }
+        
+    }
 
-	public function adminlte_desc()
-	{
-		return 'That\'s a nice guy';
-	}
+    public function adminlte_desc()
+    {
+        return 'That\'s a nice guy';
+    }
 
-	public function adminlte_profile_url()
-	{
-		return 'users/profile';
-	}
-	
-	public function avatar(){
-		return 'avatar.jpg';
-	}
-	
-	public function getUnit(){
-		return $this->hasOne(Unit::class,'id','unit');
-	}
-	
-	public function getStaff(){
-		return $this->hasOne(Staff::class,'id','staff');
-	}
-	
-	public function hasRoleAktif($roleCheck){
-		$rol=$this->roles->pluck('name')->toArray();
-		
-		if(count($rol)<$this->role_aktif){
-			$this->role_aktif=0;
-			$this->save();
-			return false;
-		}
-		if($rol[$this->role_aktif]==$roleCheck)return true;
-		return false;
-	}
+    public function adminlte_profile_url()
+    {
+        return 'users/profile';
+    }
+    
+    public function avatar(){
+        return 'avatar.jpg';
+    }
+    
+    public function getUnit(){
+        return $this->hasOne(Unit::class,'id','unit');
+    }
+    
+    public function getStaff(){
+        return $this->hasOne(Staff::class,'id','staff');
+    }
+    
+    public function hasRoleAktif($roleCheck){
+        $rol=$this->roles->pluck('name')->toArray();
+        
+        if(count($rol)<$this->role_aktif){
+            $this->role_aktif=0;
+            $this->save();
+            return false;
+        }
+        if($rol[$this->role_aktif]==$roleCheck)return true;
+        return false;
+    }
     public function documents()
     {
-    return $this->hasMany(Document::class, 'user_id');
+        return $this->hasMany(Document::class, 'user_id');
     }
     public function signatures()
     {
-    return $this->hasMany(\Modules\Auth\Entities\Signature::class, 'signer_id'); 
+        return $this->hasMany(\Modules\Auth\Entities\Signature::class, 'signer_id'); 
     }
     public function routeNotificationForFcm()
-{
-    return $this->fcm_token;
-}
+    {
+        return $this->fcm_token;
+    }
+
+    // =================================================================
+    // BAGIAN PENTING YANG HILANG ADA DI BAWAH INI
+    // =================================================================
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        // Ini secara eksplisit memberitahu Laravel untuk menggunakan UserFactory
+        return UserFactory::new();
+    }
 }

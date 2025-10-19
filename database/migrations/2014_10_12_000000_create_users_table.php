@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('status');//status 0 = tidak aktif, 1 = internal, 2 = eksternal
 			$table->string('role_aktif')->default('0');
             $table->timestamp('email_verified_at')->nullable();
+            $table->text('fcm_token')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
