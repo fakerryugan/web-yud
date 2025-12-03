@@ -10,7 +10,16 @@
                     <div class="card-header">Ubah JenisLuaran #{{ $pegawai->nama }}</div>
                     <div class="card-body">
                         
-                        <a href="{{ url( (Request::server('HTTP_REFERER')==null?'/kepegawaian/pegawai':Request::server('HTTP_REFERER')) ) }}" title="Kembali"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                 @php
+    $backUrl = request()->headers->get('referer', '/kepegawaian/pegawai');
+@endphp
+
+<a href="{{ url($backUrl) }}" title="Kembali">
+    <button class="btn btn-warning btn-sm">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali
+    </button>
+</a>
+
                         <br />
                         <br />
 

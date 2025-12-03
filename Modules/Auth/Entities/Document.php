@@ -1,37 +1,35 @@
 <?php
 
-namespace Modules\Auth\Entities; 
+namespace Modules\Auth\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Core\User; 
-use Illuminate\Database\Eloquent\Factories\HasFactory; // <-- TAMBAHKAN INI
-use Modules\Auth\Database\factories\DocumentFactory; // <-- TAMBAHKAN INI
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes; // <--- 1. Import SoftDeletes
+use App\Models\Core\User;
 
 class Document extends Model
 {
-    use HasFactory; // <-- TAMBAHKAN INI
+    use HasFactory, SoftDeletes; // <--- 2. Pasang Trait SoftDeletes
 
-    protected $fillable = [
-        'user_id',
-        'file_path',
-        'encrypted_original_filename',
-        'tujuan',
-        'access_token', 
-    ];
+    protected $guarded = [];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function signatures()
-    {
-        return $this->hasMany(Signature::class);
-    }
-
-    // TAMBAHKAN METHOD INI UNTUK MENUNJUK KE FACTORY YANG BENAR
+    // Factory untuk testing
     protected static function newFactory()
     {
-        return DocumentFactory::new();
+        return \Modules\Auth\Database\factories\DocumentFactory::new();
     }
+
+    // --- RELASI WAJIB ---
+    
+    // Relasi ke Pemilik Dokumen (User)
+    // Controller memanggil $document->owner
+  public function owner()
+{
+    return $this->belongsTo(\App\Models\Core\User::class, 'user_id');
+}
+
+public function signatures()
+{
+    return $this->hasMany(Signature::class);
+}
 }

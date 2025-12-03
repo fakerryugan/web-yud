@@ -5,21 +5,23 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSignaturesTable extends Migration
 {
-    public function up()
-    {
-        Schema::create('signatures', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('document_id')->index();
-            $table->unsignedBigInteger('signer_id');
-            $table->string('status', 255)->default('pending'); // pending, signed, rejected
-            $table->char('sign_token', 36)->nullable()->index();
-            $table->timestamp('signed_at')->nullable();
-            $table->timestamps();
+   public function up()
+{
+    Schema::create('signatures', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('document_id')->constrained()->onDelete('cascade');
+        $table->foreignId('signer_id'); // Sesuaikan jika nama kolom Anda user_id
+        $table->string('sign_token')->unique();
+        $table->string('status')->default('pending');
 
-            $table->foreign('document_id')->references('id')->on('documents')->onDelete('cascade');
-            $table->foreign('signer_id')->references('id')->on('users')->onDelete('cascade');
-        });
-    }
+        // --- TAMBAHKAN DUA BARIS INI ---
+        $table->timestamp('signed_at')->nullable(); // Wajib untuk Approve
+        $table->text('comment')->nullable();        // Wajib untuk Reject
+        // -------------------------------
+
+        $table->timestamps();
+    });
+}
 
     public function down()
     {

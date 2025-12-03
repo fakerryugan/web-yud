@@ -1,4 +1,4 @@
-<input type="hidden" name="backurl" value="<?php echo (Request::server('HTTP_REFERER')==null?'/kepegawaian/pegawai':Request::server('HTTP_REFERER')); ?>">
+<input type="hidden" name="backurl" value="{{ request()->headers->get('referer', '/kepegawaian/pegawai') }}">
 
 <div class="form-group {{ $errors->has('nip') ? 'has-error' : ''}}">
     <label for="nip" class="control-label">{{ 'NIP/NIPPPK/NIK' }}</label>

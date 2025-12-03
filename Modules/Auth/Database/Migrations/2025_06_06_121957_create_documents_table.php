@@ -7,18 +7,25 @@ class CreateDocumentsTable extends Migration
 {
     public function up()
     {
-        Schema::create('documents', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('file_path');
-            $table->text('encrypted_original_filename');
-            $table->string('tujuan')->nullable();
-            $table->timestamp('verified_at')->nullable();
-            $table->string('access_token', 100);
-            $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
+{
+    Schema::create('documents', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->string('file_path');
+        $table->text('encrypted_original_filename');
+        $table->string('tujuan')->nullable();
+        $table->uuid('access_token')->unique();
+
+        // --- TAMBAHKAN DUA BARIS INI ---
+        $table->string('status')->default('pending'); 
+        $table->timestamp('verified_at')->nullable();
+        // -------------------------------
+
+        $table->timestamps();
+        $table->softDeletes();
+    });
+}
     }
 
     public function down()
