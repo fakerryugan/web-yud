@@ -1,8 +1,8 @@
-@extends('adminlte::page')
 
-@section('title', 'Dasbor Persuratan Digital')
 
-@section('content_header')
+<?php $__env->startSection('title', 'Dasbor Persuratan Digital'); ?>
+
+<?php $__env->startSection('content_header'); ?>
 <div class="d-flex justify-content-between align-items-center mx-auto" style="max-width: 1180px;">
   <h1 class="m-0 text-dark">Dashboard</h1>
   <div class="d-flex align-items-center">
@@ -39,10 +39,10 @@
     </form>
   </div>
 </div>
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
-<link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}?v={{ time() }}">
+<?php $__env->startSection('content'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('assets/css/dashboard.css')); ?>?v=<?php echo e(time()); ?>">
 <style>
   .more-wrapper {
     position: relative;
@@ -100,22 +100,22 @@
 
           <ul class="filter-list list-unstyled mt-3">
             <li class="filter-item active" data-filter="semua">
-              <img src="{{ asset('assets/img/semua.png') }}" alt="Semua" class="icon-sm">
+              <img src="<?php echo e(asset('assets/img/semua.png')); ?>" alt="Semua" class="icon-sm">
               <span>Semua Dokumen</span>
             </li>
 
             <li class="filter-item" data-filter="tertunda">
-              <img src="{{ asset('assets/img/jam_icon.png') }}" alt="Tertunda" class="icon-sm">
+              <img src="<?php echo e(asset('assets/img/jam_icon.png')); ?>" alt="Tertunda" class="icon-sm">
               <span>Tertunda</span>
             </li>
 
             <li class="filter-item" data-filter="selesai">
-              <img src="{{ asset('assets/img/centang_book.png') }}" alt="Selesai" class="icon-sm">
+              <img src="<?php echo e(asset('assets/img/centang_book.png')); ?>" alt="Selesai" class="icon-sm">
               <span>Selesai</span>
             </li>
 
             <li class="filter-item" data-filter="ditolak">
-              <img src="{{ asset('assets/img/tolak_book.png') }}" alt="Ditolak" class="icon-sm">
+              <img src="<?php echo e(asset('assets/img/tolak_book.png')); ?>" alt="Ditolak" class="icon-sm">
               <span>Ditolak</span>
             </li>
           </ul>
@@ -138,7 +138,7 @@
             <div class="row-item d-grid" data-status="selesai" data-recipient="kaprodi">
               <div class="doc-col d-flex align-items-center">
                 <div class="avatar-circle">
-                  <img src="{{ asset('assets/img/userdokumen.png') }}" alt="user" class="avatar-img">
+                  <img src="<?php echo e(asset('assets/img/userdokumen.png')); ?>" alt="user" class="avatar-img">
                 </div>
                 <div class="doc-title">Dokumen semua korupsi.pdf</div>
               </div>
@@ -147,7 +147,7 @@
                 Yusuf, S.Kom., M.K....</div>
               <div class="status-col">
                 <span class="status">
-                  <img src="{{ asset('assets/img/done.png') }}" alt="ok" class="status-icon">
+                  <img src="<?php echo e(asset('assets/img/done.png')); ?>" alt="ok" class="status-icon">
                 </span>
               </div>
               <td class="text-end">
@@ -167,7 +167,7 @@
             <div class="row-item d-grid" data-status="ditolak" data-recipient="kajur">
               <div class="doc-col d-flex align-items-center">
                 <div class="avatar-circle">
-                  <img src="{{ asset('assets/img/userdokumen.png') }}" alt="user" class="avatar-img">
+                  <img src="<?php echo e(asset('assets/img/userdokumen.png')); ?>" alt="user" class="avatar-img">
                 </div>
                 <div class="doc-title">Dokumen penjualan pulau.pdf</div>
               </div>
@@ -176,7 +176,7 @@
                 Suwardiyanto,S.Si....</div>
               <div class="status-col">
                 <span class="status">
-                  <img src="{{ asset('assets/img/cancel.png') }}" alt="ok" class="status-icon">
+                  <img src="<?php echo e(asset('assets/img/cancel.png')); ?>" alt="ok" class="status-icon">
                 </span>
               </div>
               <td class="text-end">
@@ -196,7 +196,7 @@
             <div class="row-item d-grid" data-status="selesai" data-recipient="kajur">
               <div class="doc-col d-flex align-items-center">
                 <div class="avatar-circle">
-                  <img src="{{ asset('assets/img/userdokumen.png') }}" alt="user" class="avatar-img">
+                  <img src="<?php echo e(asset('assets/img/userdokumen.png')); ?>" alt="user" class="avatar-img">
                 </div>
                 <div class="doc-title">Pasar gelap bebas akses.pdf</div>
               </div>
@@ -205,7 +205,7 @@
                 Suwardiyanto,S.Si....</div>
               <div class="status-col">
                 <span class="status">
-                  <img src="{{ asset('assets/img/done.png') }}" alt="ok" class="status-icon">
+                  <img src="<?php echo e(asset('assets/img/done.png')); ?>" alt="ok" class="status-icon">
                 </span>
               </div>
               <td class="text-end">
@@ -225,7 +225,7 @@
             <div class="row-item d-grid" data-status="tertunda" data-recipient="kaprodi">
               <div class="doc-col d-flex align-items-center">
                 <div class="avatar-circle">
-                  <img src="{{ asset('assets/img/userdokumen.png') }}" alt="user" class="avatar-img">
+                  <img src="<?php echo e(asset('assets/img/userdokumen.png')); ?>" alt="user" class="avatar-img">
                 </div>
                 <div class="doc-title">Dokumen semua korupsi.pdf</div>
               </div>
@@ -234,7 +234,7 @@
                 Suwardiyanto,S.Si....</div>
               <div class="status-col">
                 <span class="status">
-                  <img src="{{ asset('assets/img/proses.png') }}" alt="ok" class="status-icon">
+                  <img src="<?php echo e(asset('assets/img/proses.png')); ?>" alt="ok" class="status-icon">
                 </span>
               </div>
               <td class="text-end">
@@ -254,7 +254,7 @@
             <div class="row-item d-grid" data-status="selesai" data-recipient="kaprodi">
               <div class="doc-col d-flex align-items-center">
                 <div class="avatar-circle">
-                  <img src="{{ asset('assets/img/userdokumen.png') }}" alt="user" class="avatar-img">
+                  <img src="<?php echo e(asset('assets/img/userdokumen.png')); ?>" alt="user" class="avatar-img">
                 </div>
                 <div class="doc-title">Strategi Korupsi Projek Jalan...</div>
               </div>
@@ -263,7 +263,7 @@
                 Yusuf, S.Kom., M.K....</div>
               <div class="status-col">
                 <span class="status">
-                  <img src="{{ asset('assets/img/done.png') }}" alt="ok" class="status-icon">
+                  <img src="<?php echo e(asset('assets/img/done.png')); ?>" alt="ok" class="status-icon">
                 </span>
               </div>
               <td class="text-end">
@@ -283,7 +283,7 @@
 
           <div class="backup-wrap">
             <button class="btn backup-btn">
-              <img src="{{ asset('assets/img/backup.png') }}" alt="backup" class="icon-img-sm">
+              <img src="<?php echo e(asset('assets/img/backup.png')); ?>" alt="backup" class="icon-img-sm">
               Backup All Data
             </button>
           </div>
@@ -356,13 +356,13 @@
       </div>
     </div>
   </div>
-  @stop
+  <?php $__env->stopSection(); ?>
 
-  @section('css')
+  <?php $__env->startSection('css'); ?>
   <!--some css
     <link rel="stylesheet" href="/assets/css/admin_custom.css">-->
-  @stop
-  @push('js')
+  <?php $__env->stopSection(); ?>
+  <?php $__env->startPush('js'); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script>
       // Worker PDF.js
@@ -571,4 +571,5 @@
         });
       });
     </script>
-  @endpush
+  <?php $__env->stopPush(); ?>
+<?php echo $__env->make('adminlte::page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\KULIAH\web-yud\resources\views/dashboard/admin.blade.php ENDPATH**/ ?>
